@@ -152,6 +152,9 @@ def sidebar_config() -> dict | None:
         key="api_key_input",
     )
     st.session_state["api_key"] = api_key
+    if api_key.strip():
+        os.environ["GROQ_API_KEY"] = api_key.strip()
+
 
     st.sidebar.divider()
     st.sidebar.subheader("Your Company")
